@@ -1,1 +1,1 @@
-include ':xlog', ':xlog-libcat', ':xlog-sample'
+include ':xlog', /*':xlog-libcat',*/ ':xlog-sample'
