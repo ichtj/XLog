@@ -608,7 +608,9 @@ public class XLog {
      * @since 1.1.0
      */
     public static void d(Object object) {
-        sLogger.d(object);
+        if(sLogger!=null){
+            sLogger.d(object);
+        }
     }
 
     /**
@@ -617,7 +619,9 @@ public class XLog {
      * @param array the array to log
      */
     public static void d(Object[] array) {
-        sLogger.d(array);
+        if(sLogger!=null) {
+            sLogger.d(array);
+        }
     }
 
     /**
@@ -627,7 +631,9 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void d(String format, Object... args) {
-        sLogger.d(format, args);
+        if(sLogger!=null) {
+            sLogger.d(format, args);
+        }
     }
 
     /**
@@ -636,7 +642,9 @@ public class XLog {
      * @param msg the message to log
      */
     public static void d(String msg) {
-        sLogger.d(msg);
+        if(sLogger!=null) {
+            sLogger.d(msg);
+        }
     }
 
     /**
@@ -646,7 +654,9 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void d(String msg, Throwable tr) {
-        sLogger.d(msg, tr);
+        if(sLogger!=null) {
+            sLogger.d(msg, tr);
+        }
     }
 
     /**
@@ -657,7 +667,9 @@ public class XLog {
      * @since 1.1.0
      */
     public static void i(Object object) {
-        sLogger.i(object);
+        if(sLogger!=null) {
+            sLogger.i(object);
+        }
     }
 
     /**
@@ -666,7 +678,9 @@ public class XLog {
      * @param array the array to log
      */
     public static void i(Object[] array) {
-        sLogger.i(array);
+        if(sLogger!=null) {
+            sLogger.i(array);
+        }
     }
 
     /**
@@ -676,7 +690,9 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void i(String format, Object... args) {
-        sLogger.i(format, args);
+        if(sLogger!=null) {
+            sLogger.i(format, args);
+        }
     }
 
     /**
@@ -685,7 +701,9 @@ public class XLog {
      * @param msg the message to log
      */
     public static void i(String msg) {
-        sLogger.i(msg);
+        if(sLogger!=null) {
+            sLogger.i(msg);
+        }
     }
 
     /**
@@ -695,7 +713,9 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void i(String msg, Throwable tr) {
-        sLogger.i(msg, tr);
+        if(sLogger!=null) {
+            sLogger.i(msg, tr);
+        }
     }
 
     /**
@@ -706,7 +726,9 @@ public class XLog {
      * @since 1.1.0
      */
     public static void w(Object object) {
-        sLogger.w(object);
+        if(sLogger!=null) {
+            sLogger.w(object);
+        }
     }
 
     /**
@@ -715,7 +737,9 @@ public class XLog {
      * @param array the array to log
      */
     public static void w(Object[] array) {
-        sLogger.w(array);
+        if(sLogger!=null) {
+            sLogger.w(array);
+        }
     }
 
     /**
@@ -725,7 +749,9 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void w(String format, Object... args) {
-        sLogger.w(format, args);
+        if(sLogger!=null) {
+            sLogger.w(format, args);
+        }
     }
 
     /**
@@ -734,7 +760,9 @@ public class XLog {
      * @param msg the message to log
      */
     public static void w(String msg) {
-        sLogger.w(msg);
+        if(sLogger!=null) {
+            sLogger.w(msg);
+        }
     }
 
     /**
@@ -744,7 +772,9 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void w(String msg, Throwable tr) {
-        sLogger.w(msg, tr);
+        if(sLogger!=null) {
+            sLogger.w(msg, tr);
+        }
     }
 
     /**
@@ -755,7 +785,9 @@ public class XLog {
      * @since 1.1.0
      */
     public static void e(Object object) {
-        sLogger.e(object);
+        if(sLogger!=null) {
+            sLogger.e(object);
+        }
     }
 
     /**
@@ -764,7 +796,9 @@ public class XLog {
      * @param array the array to log
      */
     public static void e(Object[] array) {
-        sLogger.e(array);
+        if(sLogger!=null) {
+            sLogger.e(array);
+        }
     }
 
     /**
@@ -774,7 +808,9 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void e(String format, Object... args) {
-        sLogger.e(format, args);
+        if(sLogger!=null) {
+            sLogger.e(format, args);
+        }
     }
 
     /**
@@ -783,7 +819,9 @@ public class XLog {
      * @param msg the message to log
      */
     public static void e(String msg) {
-        sLogger.e(msg);
+        if(sLogger!=null) {
+            sLogger.e(msg);
+        }
     }
 
     /**
@@ -793,7 +831,9 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void e(String msg, Throwable tr) {
-        sLogger.e(msg, tr);
+        if(sLogger!=null) {
+            sLogger.e(msg, tr);
+        }
     }
 
     /**
@@ -805,7 +845,9 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, Object object) {
-        sLogger.log(logLevel, object);
+        if(sLogger!=null) {
+            sLogger.log(logLevel, object);
+        }
     }
 
     /**
@@ -816,7 +858,9 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, Object[] array) {
-        sLogger.log(logLevel, array);
+        if(sLogger!=null) {
+            sLogger.log(logLevel, array);
+        }
     }
 
     /**
@@ -828,7 +872,9 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String format, Object... args) {
-        sLogger.log(logLevel, format, args);
+        if(sLogger!=null) {
+            sLogger.log(logLevel, format, args);
+        }
     }
 
     /**
@@ -839,7 +885,9 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String msg) {
-        sLogger.log(logLevel, msg);
+        if(sLogger!=null) {
+            sLogger.log(logLevel, msg);
+        }
     }
 
     /**
@@ -851,7 +899,9 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String msg, Throwable tr) {
-        sLogger.log(logLevel, msg, tr);
+        if(sLogger!=null) {
+            sLogger.log(logLevel, msg, tr);
+        }
     }
 
     /**
@@ -860,7 +910,9 @@ public class XLog {
      * @param json the JSON string to log
      */
     public static void json(String json) {
-        sLogger.json(json);
+        if(sLogger!=null) {
+            sLogger.json(json);
+        }
     }
 
     /**
@@ -869,7 +921,9 @@ public class XLog {
      * @param xml the XML string to log
      */
     public static void xml(String xml) {
-        sLogger.xml(xml);
+        if(sLogger!=null) {
+            sLogger.xml(xml);
+        }
     }
 
     /**
