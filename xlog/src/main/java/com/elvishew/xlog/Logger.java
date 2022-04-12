@@ -471,7 +471,7 @@ public class Logger {
    * @param json the JSON string to log
    */
   public void json(String json) {
-    if (LogLevel.DEBUG < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||LogLevel.DEBUG < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(LogLevel.DEBUG, logConfiguration.jsonFormatter.format(json));
@@ -483,7 +483,7 @@ public class Logger {
    * @param xml the XML string to log
    */
   public void xml(String xml) {
-    if (LogLevel.DEBUG < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||LogLevel.DEBUG < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(LogLevel.DEBUG, logConfiguration.xmlFormatter.format(xml));
@@ -496,7 +496,7 @@ public class Logger {
    * @param object   the object to print
    */
   private <T> void println(int logLevel, T object) {
-    if (logLevel < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||logLevel < logConfiguration.logLevel) {
       return;
     }
     String objectString;
@@ -520,7 +520,7 @@ public class Logger {
    * @param array    the array to print
    */
   private void println(int logLevel, Object[] array) {
-    if (logLevel < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||logLevel < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(logLevel, Arrays.deepToString(array));
@@ -534,7 +534,7 @@ public class Logger {
    * @param args     the arguments of the printing log
    */
   private void println(int logLevel, String format, Object... args) {
-    if (logLevel < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||logLevel < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(logLevel, formatArgs(format, args));
@@ -547,7 +547,7 @@ public class Logger {
    * @param msg      the message you would like to log
    */
     /*package*/ void println(int logLevel, String msg) {
-    if (logLevel < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||logLevel < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(logLevel, msg != null ? msg : "");
@@ -561,7 +561,7 @@ public class Logger {
    * @param tr       a throwable object to log
    */
   private void println(int logLevel, String msg, Throwable tr) {
-    if (logLevel < logConfiguration.logLevel) {
+    if (logConfiguration==null||printer==null||logLevel < logConfiguration.logLevel) {
       return;
     }
     printlnInternal(logLevel, ((msg == null || msg.length() == 0)
