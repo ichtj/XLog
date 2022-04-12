@@ -253,7 +253,7 @@ public class XLog {
     /**
      * Throw an IllegalStateException if not initialized.
      */
-    static boolean assertInitialization() {
+    public static boolean assertInitialization() {
         if (!sIsInitialized) {
             //throw new IllegalStateException("Do you forget to initialize XLog?");
             //android.util.Log.d(XLog.class.getSimpleName(), "Do you forget to initialize XLog?");
