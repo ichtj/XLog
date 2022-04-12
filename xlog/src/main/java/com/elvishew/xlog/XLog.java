@@ -17,6 +17,7 @@
 package com.elvishew.xlog;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.elvishew.xlog.formatter.border.BorderFormatter;
 import com.elvishew.xlog.formatter.message.json.JsonFormatter;
@@ -254,7 +255,9 @@ public class XLog {
    */
   static void assertInitialization() {
     if (!sIsInitialized) {
-      throw new IllegalStateException("Do you forget to initialize XLog?");
+      //throw new IllegalStateException("Do you forget to initialize XLog?");
+      android.util.Log.d(XLog.class.getSimpleName(),"Do you forget to initialize XLog?");
+      return;
     }
   }
 
