@@ -150,7 +150,9 @@ public class Logger {
    * @since 1.1.0
    */
   public void v(Object object) {
-    println(LogLevel.VERBOSE, object);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.VERBOSE, object);
+    }
   }
 
   /**
@@ -159,7 +161,9 @@ public class Logger {
    * @param array the array to log
    */
   public void v(Object[] array) {
-    println(LogLevel.VERBOSE, array);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.VERBOSE, array);
+    }
   }
 
   /**
@@ -169,7 +173,9 @@ public class Logger {
    * @param args   the arguments of the message to log
    */
   public void v(String format, Object... args) {
-    println(LogLevel.VERBOSE, format, args);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.VERBOSE, format, args);
+    }
   }
 
   /**
@@ -178,7 +184,9 @@ public class Logger {
    * @param msg the message to log
    */
   public void v(String msg) {
-    println(LogLevel.VERBOSE, msg);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.VERBOSE, msg);
+    }
   }
 
   /**
@@ -188,7 +196,9 @@ public class Logger {
    * @param tr  the throwable to be log
    */
   public void v(String msg, Throwable tr) {
-    println(LogLevel.VERBOSE, msg, tr);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.VERBOSE, msg, tr);
+    }
   }
 
   /**
@@ -199,7 +209,9 @@ public class Logger {
    * @since 1.1.0
    */
   public void d(Object object) {
-    println(LogLevel.DEBUG, object);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.DEBUG, object);
+    }
   }
 
   /**
@@ -208,7 +220,9 @@ public class Logger {
    * @param array the array to log
    */
   public void d(Object[] array) {
-    println(LogLevel.DEBUG, array);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.DEBUG, array);
+    }
   }
 
   /**
@@ -218,7 +232,9 @@ public class Logger {
    * @param args   the arguments of the message to log
    */
   public void d(String format, Object... args) {
-    println(LogLevel.DEBUG, format, args);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.DEBUG, format, args);
+    }
   }
 
   /**
@@ -227,7 +243,9 @@ public class Logger {
    * @param msg the message to log
    */
   public void d(String msg) {
-    println(LogLevel.DEBUG, msg);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.DEBUG, msg);
+    }
   }
 
   /**
@@ -237,7 +255,9 @@ public class Logger {
    * @param tr  the throwable to be log
    */
   public void d(String msg, Throwable tr) {
-    println(LogLevel.DEBUG, msg, tr);
+    if (XLog.assertInitialization()) {
+      println(LogLevel.DEBUG, msg, tr);
+    }
   }
 
   /**
@@ -556,49 +576,51 @@ public class Logger {
    * @param msg      the message you would like to log
    */
   private void printlnInternal(int logLevel, String msg) {
-    String tag = logConfiguration.tag;
-    String thread = logConfiguration.withThread
-        ? logConfiguration.threadFormatter.format(Thread.currentThread())
-        : null;
-    String stackTrace = logConfiguration.withStackTrace
-        ? logConfiguration.stackTraceFormatter.format(
-        StackTraceUtil.getCroppedRealStackTrack(new Throwable().getStackTrace(),
-            logConfiguration.stackTraceOrigin,
-            logConfiguration.stackTraceDepth))
-        : null;
+    if(XLog.assertInitialization()){
+      String tag = logConfiguration.tag;
+      String thread = logConfiguration.withThread
+              ? logConfiguration.threadFormatter.format(Thread.currentThread())
+              : null;
+      String stackTrace = logConfiguration.withStackTrace
+              ? logConfiguration.stackTraceFormatter.format(
+              StackTraceUtil.getCroppedRealStackTrack(new Throwable().getStackTrace(),
+                      logConfiguration.stackTraceOrigin,
+                      logConfiguration.stackTraceDepth))
+              : null;
 
-    if (logConfiguration.interceptors != null) {
-      LogItem log = new LogItem(logLevel, tag, thread, stackTrace, msg);
-      for (Interceptor interceptor : logConfiguration.interceptors) {
-        log = interceptor.intercept(log);
-        if (log == null) {
-          // Log is eaten, don't print this log.
-          return;
+      if (logConfiguration.interceptors != null) {
+        LogItem log = new LogItem(logLevel, tag, thread, stackTrace, msg);
+        for (Interceptor interceptor : logConfiguration.interceptors) {
+          log = interceptor.intercept(log);
+          if (log == null) {
+            // Log is eaten, don't print this log.
+            return;
+          }
+
+          // Check if the log still healthy.
+          if (log.tag == null || log.msg == null) {
+            Platform.get().error("Interceptor " + interceptor
+                    + " should not remove the tag or message of a log,"
+                    + " if you don't want to print this log,"
+                    + " just return a null when intercept.");
+            return;
+          }
         }
 
-        // Check if the log still healthy.
-        if (log.tag == null || log.msg == null) {
-          Platform.get().error("Interceptor " + interceptor
-              + " should not remove the tag or message of a log,"
-              + " if you don't want to print this log,"
-              + " just return a null when intercept.");
-          return;
-        }
+        // Use fields after interception.
+        logLevel = log.level;
+        tag = log.tag;
+        thread = log.threadInfo;
+        stackTrace = log.stackTraceInfo;
+        msg = log.msg;
       }
 
-      // Use fields after interception.
-      logLevel = log.level;
-      tag = log.tag;
-      thread = log.threadInfo;
-      stackTrace = log.stackTraceInfo;
-      msg = log.msg;
+      printer.println(logLevel, tag, logConfiguration.withBorder
+              ? logConfiguration.borderFormatter.format(new String[]{thread, stackTrace, msg})
+              : ((thread != null ? (thread + SystemCompat.lineSeparator) : "")
+              + (stackTrace != null ? (stackTrace + SystemCompat.lineSeparator) : "")
+              + msg));
     }
-
-    printer.println(logLevel, tag, logConfiguration.withBorder
-        ? logConfiguration.borderFormatter.format(new String[]{thread, stackTrace, msg})
-        : ((thread != null ? (thread + SystemCompat.lineSeparator) : "")
-        + (stackTrace != null ? (stackTrace + SystemCompat.lineSeparator) : "")
-        + msg));
   }
 
   /**
@@ -732,7 +754,6 @@ public class Logger {
      * Construct a builder, which will perform the same as the global one by default.
      */
     public Builder() {
-      XLog.assertInitialization();
     }
 
     /**

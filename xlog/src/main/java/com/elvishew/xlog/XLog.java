@@ -559,9 +559,7 @@ public class XLog {
      * @since 1.1.0
      */
     public static void v(Object object) {
-        if (assertInitialization()) {
-            sLogger.v(object);
-        }
+        sLogger.v(object);
     }
 
     /**
@@ -570,9 +568,7 @@ public class XLog {
      * @param array the array to log
      */
     public static void v(Object[] array) {
-        if (assertInitialization()) {
-            sLogger.v(array);
-        }
+        sLogger.v(array);
     }
 
     /**
@@ -582,9 +578,7 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void v(String format, Object... args) {
-        if (assertInitialization()) {
-            sLogger.v(format, args);
-        }
+        sLogger.v(format, args);
     }
 
     /**
@@ -593,9 +587,7 @@ public class XLog {
      * @param msg the message to log
      */
     public static void v(String msg) {
-        if (assertInitialization()) {
-            sLogger.v(msg);
-        }
+        sLogger.v(msg);
     }
 
     /**
@@ -605,9 +597,7 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void v(String msg, Throwable tr) {
-        if (assertInitialization()) {
-            sLogger.v(msg, tr);
-        }
+        sLogger.v(msg, tr);
     }
 
     /**
@@ -618,9 +608,7 @@ public class XLog {
      * @since 1.1.0
      */
     public static void d(Object object) {
-        if(assertInitialization()) {
-            sLogger.d(object);
-        }
+        sLogger.d(object);
     }
 
     /**
@@ -629,9 +617,7 @@ public class XLog {
      * @param array the array to log
      */
     public static void d(Object[] array) {
-        if(assertInitialization()) {
-            sLogger.d(array);
-        }
+        sLogger.d(array);
     }
 
     /**
@@ -641,9 +627,7 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void d(String format, Object... args) {
-        if(assertInitialization()) {
-            sLogger.d(format, args);
-        }
+        sLogger.d(format, args);
     }
 
     /**
@@ -652,9 +636,7 @@ public class XLog {
      * @param msg the message to log
      */
     public static void d(String msg) {
-        if(assertInitialization()) {
-            sLogger.d(msg);
-        }
+        sLogger.d(msg);
     }
 
     /**
@@ -664,9 +646,7 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void d(String msg, Throwable tr) {
-        if(assertInitialization()) {
-            sLogger.d(msg, tr);
-        }
+        sLogger.d(msg, tr);
     }
 
     /**
@@ -677,9 +657,7 @@ public class XLog {
      * @since 1.1.0
      */
     public static void i(Object object) {
-        if(assertInitialization()) {
-            sLogger.i(object);
-        }
+        sLogger.i(object);
     }
 
     /**
@@ -688,9 +666,7 @@ public class XLog {
      * @param array the array to log
      */
     public static void i(Object[] array) {
-        if(assertInitialization()) {
-            sLogger.i(array);
-        }
+        sLogger.i(array);
     }
 
     /**
@@ -700,9 +676,7 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void i(String format, Object... args) {
-        if(assertInitialization()) {
-            sLogger.i(format, args);
-        }
+        sLogger.i(format, args);
     }
 
     /**
@@ -711,9 +685,7 @@ public class XLog {
      * @param msg the message to log
      */
     public static void i(String msg) {
-        if(assertInitialization()) {
-            sLogger.i(msg);
-        }
+        sLogger.i(msg);
     }
 
     /**
@@ -723,9 +695,7 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void i(String msg, Throwable tr) {
-        if(assertInitialization()) {
-            sLogger.i(msg, tr);
-        }
+        sLogger.i(msg, tr);
     }
 
     /**
@@ -736,9 +706,7 @@ public class XLog {
      * @since 1.1.0
      */
     public static void w(Object object) {
-        if(assertInitialization()) {
-            sLogger.w(object);
-        }
+        sLogger.w(object);
     }
 
     /**
@@ -747,9 +715,7 @@ public class XLog {
      * @param array the array to log
      */
     public static void w(Object[] array) {
-        if(assertInitialization()) {
-            sLogger.w(array);
-        }
+        sLogger.w(array);
     }
 
     /**
@@ -759,9 +725,7 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void w(String format, Object... args) {
-        if(assertInitialization()) {
-            sLogger.w(format, args);
-        }
+        sLogger.w(format, args);
     }
 
     /**
@@ -770,9 +734,7 @@ public class XLog {
      * @param msg the message to log
      */
     public static void w(String msg) {
-        if(assertInitialization()) {
-            sLogger.w(msg);
-        }
+        sLogger.w(msg);
     }
 
     /**
@@ -782,9 +744,7 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void w(String msg, Throwable tr) {
-        if(assertInitialization()) {
-            sLogger.w(msg, tr);
-        }
+        sLogger.w(msg, tr);
     }
 
     /**
@@ -795,9 +755,7 @@ public class XLog {
      * @since 1.1.0
      */
     public static void e(Object object) {
-        if(assertInitialization()) {
-            sLogger.e(object);
-        }
+        sLogger.e(object);
     }
 
     /**
@@ -806,9 +764,7 @@ public class XLog {
      * @param array the array to log
      */
     public static void e(Object[] array) {
-        if(assertInitialization()) {
-            sLogger.e(array);
-        }
+        sLogger.e(array);
     }
 
     /**
@@ -818,9 +774,7 @@ public class XLog {
      * @param args   the arguments of the message to log
      */
     public static void e(String format, Object... args) {
-        if(assertInitialization()) {
-            sLogger.e(format, args);
-        }
+        sLogger.e(format, args);
     }
 
     /**
@@ -829,9 +783,7 @@ public class XLog {
      * @param msg the message to log
      */
     public static void e(String msg) {
-        if(assertInitialization()) {
-            sLogger.e(msg);
-        }
+        sLogger.e(msg);
     }
 
     /**
@@ -841,9 +793,7 @@ public class XLog {
      * @param tr  the throwable to be log
      */
     public static void e(String msg, Throwable tr) {
-        if(assertInitialization()) {
-            sLogger.e(msg, tr);
-        }
+        sLogger.e(msg, tr);
     }
 
     /**
@@ -855,9 +805,7 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, Object object) {
-        if(assertInitialization()) {
-            sLogger.log(logLevel, object);
-        }
+        sLogger.log(logLevel, object);
     }
 
     /**
@@ -868,9 +816,7 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, Object[] array) {
-        if(assertInitialization()) {
-            sLogger.log(logLevel, array);
-        }
+        sLogger.log(logLevel, array);
     }
 
     /**
@@ -882,9 +828,7 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String format, Object... args) {
-        if(assertInitialization()) {
-            sLogger.log(logLevel, format, args);
-        }
+        sLogger.log(logLevel, format, args);
     }
 
     /**
@@ -895,9 +839,7 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String msg) {
-        if(assertInitialization()) {
-            sLogger.log(logLevel, msg);
-        }
+        sLogger.log(logLevel, msg);
     }
 
     /**
@@ -909,9 +851,7 @@ public class XLog {
      * @since 1.4.0
      */
     public static void log(int logLevel, String msg, Throwable tr) {
-        if(assertInitialization()) {
-            sLogger.log(logLevel, msg, tr);
-        }
+        sLogger.log(logLevel, msg, tr);
     }
 
     /**
@@ -920,9 +860,7 @@ public class XLog {
      * @param json the JSON string to log
      */
     public static void json(String json) {
-        if(assertInitialization()) {
-            sLogger.json(json);
-        }
+        sLogger.json(json);
     }
 
     /**
@@ -931,9 +869,7 @@ public class XLog {
      * @param xml the XML string to log
      */
     public static void xml(String xml) {
-        if(assertInitialization()) {
-            sLogger.xml(xml);
-        }
+        sLogger.xml(xml);
     }
 
     /**
